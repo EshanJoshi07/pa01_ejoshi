@@ -42,7 +42,7 @@ bool Cards::insert(int value) {
     return insert(value, temp);
 }
 
-// insert helper (assumes n is never 0) --> recrusive 
+//insert helper (assumes n is never 0) --> recrusive 
 bool Cards::insert(int value, Node *n) {
     //check if value = n->info
     if (value == n->info)
@@ -73,43 +73,46 @@ bool Cards::insert(int value, Node *n) {
     }
 }
 
-// print tree data pre-order
+//printPreOrder
 void Cards::printPreOrder() const {
     Node *n = root;
     printPreOrder(n);
 }
 
-// printPreOrder() helper --> recursive 
+//printPreOrder helper --> recursive 
 void Cards::printPreOrder(Node *n) const {
     if (n) {
-	cout << n->info << " ";
-	printPreOrder(n->left);
-	printPreOrder(n->right);
+	    cout << n->info << " ";
+	    printPreOrder(n->left);
+	    printPreOrder(n->right);
     }
 }
 
-// print tree data in-order, with helper
+//printInOrder
 void Cards::printInOrder() const {
-    printInOrder(root);
+    Node *n = root;
+    printInOrder(n);
 }
+
+//printInOrder helper --> recursive
 void Cards::printInOrder(Node *n) const {
-    if(n==NULL){
+    if (n == NULL){
         return;
     }
     printInOrder(n->left);
     cout << n->info << " ";
     printInOrder(n->right);
-
-    // IMPLEMENT HERE
 }
 
-// prints tree data post-order, with helper
+//printPostOrder
 void Cards::printPostOrder() const {
-    printPostOrder(root);
+    Node *n = root;
+    printPostOrder(n);
 }
 
+//printPostOrder helper --> recursive
 void Cards::printPostOrder(Node *n) const {
-    if(n==NULL){
+    if (n == NULL){
         return;
     }
     printPostOrder(n->left);
@@ -118,36 +121,31 @@ void Cards::printPostOrder(Node *n) const {
     // IMPLEMENT HERE
 }
 
-// return sum of values in tree
 int Cards::sum() const {
-    return sum(root);
+    Node *n = root;
+    return sum(n);
 }
 
-// recursive helper for sum
+//sum helper --> recursive
 int Cards::sum(Node *n) const {
-    if(n==NULL){
+    if (n == NULL){
         return 0;
     }
-    else{
-        return n->info+sum(n->left)+sum(n->right);
-    }
-    // REPLACE THIS NON-SOLUTION
+    return (n->info + sum(n->left) + sum(n->right));
 }
 
-// return count of values
+//counter
 int Cards::count() const {
-    return count(root);
+    Node *n = root;
+    return count(n);
 }
 
-// recursive helper for count
+//counter hlper --> recurvsive
 int Cards::count(Node *n) const {
-    if(n==NULL){
+    if (n == NULL){
         return 0;
     }
-    else{
-        return 1+count(n->left)+count(n->right);
-    }
-    // REPLACE THIS NON-SOLUTION
+    return (1 + count(n->left) + count(n->right));
 }
 
 // Parameters:
@@ -179,7 +177,7 @@ Cards::Node* Cards::getNodeFor(int value, Node* n) const{
 // returns true if value is in the tree; false if not
 bool Cards::contains(int value) const {
     
-    return getNodeFor(value,root)!=NULL;//IS THIS ALLOWED?
+    return getNodeFor(value,root)!= NULL;//IS THIS ALLOWED?
 
      // REPLACE THIS NON-SOLUTION
 }
@@ -333,17 +331,20 @@ bool Cards::remove(int value){
 
 }
 
+//left side has larger values
 int Cards::minValue() const{
-    Node* val=root;
-    while(val->left){
-        val=val->left;
+    Node *min = root;
+    while(min->left){
+        min = min->left;
     }
-    return val->info;
+    return min->info;
 }
+
+//right side has larger values
 int Cards::maxValue() const {
-    Node* val=root;
-    while(val->right){
-        val=val->right;
+    Node *max = root;
+    while(max->right){
+        max = max->right;
     }
-    return val->info;
+    return max->info;
 }
