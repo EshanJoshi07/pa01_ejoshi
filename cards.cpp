@@ -31,15 +31,14 @@ void Cards::clear(Node *n) {
 
 //insert value in tree; return false if duplicate
 bool Cards::insert(int value) {
-    Node *n = root;
 
     //check if tree is empty
-    if (!n) {
-	    n = new Node(value);
+    if (!root) {
+	    root = new Node(value);
 	    return true;
     }
 
-    return insert(value, n);
+    return insert(value, root);
 }
 
 // //insert helper (assumes n is never 0) --> recrusive 
@@ -72,6 +71,29 @@ bool Cards::insert(int value) {
 // 	    }
 //     }
 // }
+
+bool Cards::insert(int value, Node *n) {
+    if (value == n->info)
+	return false;
+    if (value < n->info) {
+	if (n->left)
+	    return insert(value, n->left);
+	else {
+	    n->left = new Node(value);
+	    n->left->parent = n;
+	    return true;
+	}
+    }
+    else {
+	if (n->right)
+	    return insert(value, n->right);
+	else {
+	    n->right = new Node(value);
+	    n->right->parent = n;
+	    return true;
+	}
+    }
+}
 
 // //printPreOrder
 // void Cards::printPreOrder() const {
@@ -385,28 +407,28 @@ bool Cards::insert(int value) {
 // }
 
 // recursive helper for insert (assumes n is never 0)
-bool Cards::insert(int value, Node *n) {
-    if (value == n->info)
-	return false;
-    if (value < n->info) {
-	if (n->left)
-	    return insert(value, n->left);
-	else {
-	    n->left = new Node(value);
-	    n->left->parent = n;
-	    return true;
-	}
-    }
-    else {
-	if (n->right)
-	    return insert(value, n->right);
-	else {
-	    n->right = new Node(value);
-	    n->right->parent = n;
-	    return true;
-	}
-    }
-}
+// bool Cards::insert(int value, Node *n) {
+//     if (value == n->info)
+// 	return false;
+//     if (value < n->info) {
+// 	if (n->left)
+// 	    return insert(value, n->left);
+// 	else {
+// 	    n->left = new Node(value);
+// 	    n->left->parent = n;
+// 	    return true;
+// 	}
+//     }
+//     else {
+// 	if (n->right)
+// 	    return insert(value, n->right);
+// 	else {
+// 	    n->right = new Node(value);
+// 	    n->right->parent = n;
+// 	    return true;
+// 	}
+//     }
+// }
 
 // print tree data pre-order
 void Cards::printPreOrder() const {
