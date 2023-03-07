@@ -16,9 +16,9 @@ Cards::Cards() {
 }
 
 // // // destructor deletes all nodes
-// Cards::~Cards() {
-//     clear(root);
-// }
+Cards::~Cards() {
+    clear(root);
+}
 
 // // //destructor helper --> recrusive 
 void Cards::clear(Node *n) {
@@ -349,12 +349,19 @@ void Cards::clear(Node *n) {
 //     return max->info;
 // }
 
+
+
+
+
+
+
+
 // Cards::Cards() : root(nullptr) { }
 
 // destructor deletes all nodes
-Cards::~Cards() {
-    clear(root);
-}
+// Cards::~Cards() {
+//     clear(root);
+// }
 
 // recursive helper for destructor
 // void Cards::clear(Node *n) {
