@@ -151,26 +151,26 @@ int Cards::count(Node *n) const {
 // // Node* n: the node to start with (for a recursive call)
 // // Whenever you call this method from somewhere else, pass it
 // // the root node as "n"
-// Cards::Node* Cards::getNodeFor(int value, Node* n) const{
-//     if(n==NULL){
-//         return NULL;
-//     }
-//     else if(n->info==value){
-//         return n;
-//     }
-//     else if(n->left==NULL && n->right==NULL){
-//         return NULL;
-//     }
-//     else{
-//         if(n->info>value){
-//             return getNodeFor(value,n->left);
-//         }
-//         else{
-//             return getNodeFor(value,n->right);
-//         }
-//     }
-//     // REPLACE THIS NON-SOLUTION
-// }
+Cards::Node* Cards::getNodeFor(int value, Node* n) const{
+    if(n==NULL){
+        return NULL;
+    }
+    else if(n->info==value){
+        return n;
+    }
+    else if(n->left==NULL && n->right==NULL){
+        return NULL;
+    }
+    else{
+        if(n->info>value){
+            return getNodeFor(value,n->left);
+        }
+        else{
+            return getNodeFor(value,n->right);
+        }
+    }
+    // REPLACE THIS NON-SOLUTION
+}
 
 // // returns true if value is in the tree; false if not
 // bool Cards::contains(int value) const {
@@ -358,42 +358,26 @@ int Cards::count(Node *n) const {
 
 
 
-// recursive helper for count
-// int Cards::count(Node *n) const {
+// Cards::Node* Cards::getNodeFor(int value, Node* n) const{
 //     if(n==NULL){
-//         return 0;
+//         return NULL;
+//     }
+//     else if(n->info==value){
+//         return n;
+//     }
+//     else if(n->left==NULL && n->right==NULL){
+//         return NULL;
 //     }
 //     else{
-//         return 1+count(n->left)+count(n->right);
+//         if(n->info>value){
+//             return getNodeFor(value,n->left);
+//         }
+//         else{
+//             return getNodeFor(value,n->right);
+//         }
 //     }
 //     // REPLACE THIS NON-SOLUTION
 // }
-
-// Parameters:
-// int value: the value to be found
-// Node* n: the node to start with (for a recursive call)
-// Whenever you call this method from somewhere else, pass it
-// the root node as "n"
-Cards::Node* Cards::getNodeFor(int value, Node* n) const{
-    if(n==NULL){
-        return NULL;
-    }
-    else if(n->info==value){
-        return n;
-    }
-    else if(n->left==NULL && n->right==NULL){
-        return NULL;
-    }
-    else{
-        if(n->info>value){
-            return getNodeFor(value,n->left);
-        }
-        else{
-            return getNodeFor(value,n->right);
-        }
-    }
-    // REPLACE THIS NON-SOLUTION
-}
 
 // returns true if value is in the tree; false if not
 bool Cards::contains(int value) const {
