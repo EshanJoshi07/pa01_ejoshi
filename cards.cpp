@@ -164,15 +164,11 @@ Cards::Node* Cards::getNodeFor(int value, Node* n) const{
             return getNodeFor(value,n->right);
         }
     }
-    // REPLACE THIS NON-SOLUTION
 }
 
 // // returns true if value is in the tree; false if not
-bool Cards::contains(int value) const {
-    
-    return getNodeFor(value,root)!= NULL;//IS THIS ALLOWED?
-
-     // REPLACE THIS NON-SOLUTION
+bool Cards::contains(int value) const {   
+    return getNodeFor(value,root)!= NULL;
 }
 
 // // returns the Node containing the predecessor of the given value
@@ -244,7 +240,6 @@ Cards::Node* Cards::getSuccessorNode(int value) const{
         }
         return temp;
     }
-    // REPLACE THIS NON-SOLUTION
 }
 
 // returns the successor value of the given value or 0 if there is none
