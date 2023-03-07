@@ -138,13 +138,13 @@ int Cards::count() const {
     return count(n);
 }
 
-// //counter hlper --> recurvsive
-// int Cards::count(Node *n) const {
-//     if (n == NULL){
-//         return 0;
-//     }
-//     return (1 + count(n->left) + count(n->right));
-// }
+//counter hlper --> recurvsive
+int Cards::count(Node *n) const {
+    if (n == NULL){
+        return 0;
+    }
+    return (1 + count(n->left) + count(n->right));
+}
 
 // // Parameters:
 // // int value: the value to be found
@@ -357,21 +357,17 @@ int Cards::count() const {
 
 
 
-// return count of values
-// int Cards::count() const {
-//     return count(root);
-// }
 
 // recursive helper for count
-int Cards::count(Node *n) const {
-    if(n==NULL){
-        return 0;
-    }
-    else{
-        return 1+count(n->left)+count(n->right);
-    }
-    // REPLACE THIS NON-SOLUTION
-}
+// int Cards::count(Node *n) const {
+//     if(n==NULL){
+//         return 0;
+//     }
+//     else{
+//         return 1+count(n->left)+count(n->right);
+//     }
+//     // REPLACE THIS NON-SOLUTION
+// }
 
 // Parameters:
 // int value: the value to be found
