@@ -216,7 +216,7 @@ int Cards::getPredecessor(int value) const{
         return 0;
     }
     else {
-        return getPredecessorNode(value)->info;
+        return (getPredecessorNode(value))->info;
     }
 }
 
@@ -252,16 +252,15 @@ Cards::Node* Cards::getSuccessorNode(int value) const{
     // REPLACE THIS NON-SOLUTION
 }
 
-// // returns the successor value of the given value or 0 if there is none
-// int Cards::getSuccessor(int value) const{
-//     if(getSuccessorNode(value)==NULL){
-//         return 0;
-//     }
-//     else{
-//         return getSuccessorNode(value)->info;
-//     }
-//     //IS THIS ALLOWED?
-// }
+// returns the successor value of the given value or 0 if there is none
+int Cards::getSuccessor(int value) const{
+    if (getSuccessorNode(value) == NULL) {
+        return 0;
+    }
+    else {
+        return (getSuccessorNode(value))->info;
+    }
+}
 
 // // deletes the Node containing the given value from the tree
 // // returns true if the node exist and was deleted or false if the node does not exist
@@ -348,53 +347,18 @@ Cards::Node* Cards::getSuccessorNode(int value) const{
 
 
 
-// returns the Node containing the successor of the given value
-// Cards::Node* Cards::getSuccessorNode(int value) const{
-    
-//     Node* loc = getNodeFor(value,root);
-//     Node* largest = root;
-//     while(largest->right){
-//         largest = largest->right;
-//     }
-//     if(loc==largest){
+
+
+// // returns the successor value of the given value or 0 if there is none
+// int Cards::getSuccessor(int value) const{
+//     if(getSuccessorNode(value)==NULL){
 //         return 0;
 //     }
 //     else{
-//         if(loc->right){
-//             loc=loc->right;
-//             while(loc->left){
-//                 loc=loc->left;
-//             }
-//         }
-//         else{
-//             while(loc->parent){
-//                 if(loc->parent->left==loc){
-//                     return loc->parent;
-//                 }
-//                 loc=loc->parent;
-//             }
-//             /*loc=loc->parent;
-//             while(loc->left==NULL){
-//                 loc=loc->parent;
-//             }*/
-            
-//         }
-//         return loc;
-        
+//         return getSuccessorNode(value)->info;
 //     }
-//      // REPLACE THIS NON-SOLUTION
+//     //IS THIS ALLOWED?
 // }
-
-// returns the successor value of the given value or 0 if there is none
-int Cards::getSuccessor(int value) const{
-    if(getSuccessorNode(value)==NULL){
-        return 0;
-    }
-    else{
-        return getSuccessorNode(value)->info;
-    }
-    //IS THIS ALLOWED?
-}
 
 // deletes the Node containing the given value from the tree
 // returns true if the node exist and was deleted or false if the node does not exist
