@@ -173,12 +173,12 @@ Cards::Node* Cards::getNodeFor(int value, Node* n) const{
 }
 
 // // returns true if value is in the tree; false if not
-// bool Cards::contains(int value) const {
+bool Cards::contains(int value) const {
     
-//     return getNodeFor(value,root)!= NULL;//IS THIS ALLOWED?
+    return getNodeFor(value,root)!= NULL;//IS THIS ALLOWED?
 
-//      // REPLACE THIS NON-SOLUTION
-// }
+     // REPLACE THIS NON-SOLUTION
+}
 
 // // returns the Node containing the predecessor of the given value
 // Cards::Node* Cards::getPredecessorNode(int value) const{
@@ -358,34 +358,15 @@ Cards::Node* Cards::getNodeFor(int value, Node* n) const{
 
 
 
-// Cards::Node* Cards::getNodeFor(int value, Node* n) const{
-//     if(n==NULL){
-//         return NULL;
-//     }
-//     else if(n->info==value){
-//         return n;
-//     }
-//     else if(n->left==NULL && n->right==NULL){
-//         return NULL;
-//     }
-//     else{
-//         if(n->info>value){
-//             return getNodeFor(value,n->left);
-//         }
-//         else{
-//             return getNodeFor(value,n->right);
-//         }
-//     }
-//     // REPLACE THIS NON-SOLUTION
-// }
+
 
 // returns true if value is in the tree; false if not
-bool Cards::contains(int value) const {
+// bool Cards::contains(int value) const {
     
-    return getNodeFor(value,root)!=NULL;//IS THIS ALLOWED?
+//     return getNodeFor(value,root)!=NULL;//IS THIS ALLOWED?
 
-     // REPLACE THIS NON-SOLUTION
-}
+//      // REPLACE THIS NON-SOLUTION
+// }
 
 // returns the Node containing the predecessor of the given value
 Cards::Node* Cards::getPredecessorNode(int value) const{
