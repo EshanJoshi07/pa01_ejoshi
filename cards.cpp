@@ -133,10 +133,10 @@ int Cards::sum(Node *n) const {
 }
 
 // //counter
-// int Cards::count() const {
-//     Node *n = root;
-//     return count(n);
-// }
+int Cards::count() const {
+    Node *n = root;
+    return count(n);
+}
 
 // //counter hlper --> recurvsive
 // int Cards::count(Node *n) const {
@@ -356,21 +356,11 @@ int Cards::sum(Node *n) const {
 
 
 
-// recursive helper for sum
-// int Cards::sum(Node *n) const {
-//     if(n==NULL){
-//         return 0;
-//     }
-//     else{
-//         return n->info+sum(n->left)+sum(n->right);
-//     }
-//     // REPLACE THIS NON-SOLUTION
-// }
 
 // return count of values
-int Cards::count() const {
-    return count(root);
-}
+// int Cards::count() const {
+//     return count(root);
+// }
 
 // recursive helper for count
 int Cards::count(Node *n) const {
