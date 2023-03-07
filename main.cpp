@@ -166,10 +166,10 @@ int main(int argv, char** argc){
     
     // working game code
     int total = 0;
-    int minA = a.minValue();
-    int maxB = b.maxValue();
+    int minA = a.minVal();
+    int maxB = b.maxVal();
     int temp;
-    while (minA != a.maxValue() && maxB != b.minValue()) {  
+    while (minA != a.maxVal() && maxB != b.minVal()) {  
       
       //A check
       if (total == 0) {
@@ -212,7 +212,7 @@ int main(int argv, char** argc){
     cout << "Alice's cards:" << endl;
     
     
-    int val = a.minValue();
+    int val = a.minVal();
     for (int i = 0; i < a.count(); i++) {
         cout << IntToCard(val) << endl;
         val = a.getSuccessor(val);
@@ -221,7 +221,7 @@ int main(int argv, char** argc){
     cout << endl;
     cout << "Bob's cards:" << endl;
     
-    val = b.minValue();
+    val = b.minVal();
     for (int j = 0; j < b.count(); j++) {
         cout << IntToCard(val) << endl;
         val = b.getSuccessor(val);

@@ -6,7 +6,6 @@
 #ifndef CARDS_H
 #define CARDS_H
 
-
 class Cards {
     public:
     //constructor
@@ -27,8 +26,8 @@ class Cards {
     int getSuccessor(int value) const;         // returns the successor value of the given value or 0 if there is none
     bool remove(int value);                    // deletes the Node containing the given value from the tree
 
-    int minValue() const;
-    int maxValue() const;
+    int minVal() const;
+    int maxVal() const;
     
     private:
         struct Node {
@@ -52,6 +51,5 @@ class Cards {
         Node* getPredecessorNode(int value) const;
 
 };
-
 
 #endif
