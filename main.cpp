@@ -18,72 +18,72 @@ using namespace std;
 
 int CardToInt(string card){
     int val;
-    char num = card[2];
-    char suite = card[0];
+    // char num = card[2];
+    // char suite = card[0];
     // card.substr(2,2);
 
     // edge cases for ace, jackm, queenm, king
-    switch (num) {
-        case 'a':
-            val = 1;
-            break;
-        case 'j':
-            val = 11;
-            break;
-        case 'q':
-            val = 12;
-            break;
-        case 'k':
-            val = 13;
-            break;
-        default:
-            val = stoi(card.substr(2,2));
-            break;
-    }
+    // switch (num) {
+    //     case 'a':
+    //         val = 1;
+    //         break;
+    //     case 'j':
+    //         val = 11;
+    //         break;
+    //     case 'q':
+    //         val = 12;
+    //         break;
+    //     case 'k':
+    //         val = 13;
+    //         break;
+    //     default:
+    //         val = stoi(card.substr(2,2));
+    //         break;
+    // }
 
-    // if (card.substr(2,2) == "a") {
-    //   val = 1;
-    // }
-    // else if (card.substr(2,2) == "j") {
-    //     val = 11;
-    // }
-    // else if (card.substr(2,2) == "q") {
-    //     val = 12;
-    // }
-    // else if (card.substr(2,2) == "k") {
-    //     val = 13;
-    // }
-    // else {
-    //     val = stoi(card.substr(2,2));
-    // }
+    if (card.substr(2,2) == "a") {
+      val = 1;
+    }
+    else if (card.substr(2,2) == "j") {
+        val = 11;
+    }
+    else if (card.substr(2,2) == "q") {
+        val = 12;
+    }
+    else if (card.substr(2,2) == "k") {
+        val = 13;
+    }
+    else {
+        val = stoi(card.substr(2,2));
+    }
 
 
     // edge cases for diamonds, spades, and hearts
-    switch (suite) {
-        case 'd':
-            val += 13;
-            break;
-        case 's':
-            val += 26;
-            break;
-        case 'h':
-            val += 39;
-            break;
-        default:
-            val += 0;
-            break;
+    // switch (suite) {
+    //     case 'd':
+    //         val += 13;
+    //         break;
+    //     case 's':
+    //         val += 26;
+    //         break;
+    //     case 'h':
+    //         val += 39;
+    //         break;
+    //     default:
+    //         val += 0;
+    //         break;
+    // }
+
+
+    if (card.substr(0,1) == "d") {
+        val += 13;
     }
-
-
-    // if (card.substr(0,1) == "d") {
-    //     val += 13;
-    // }
-    // else if (card.substr(0,1) == "s") {
-    //     val += 26;
-    // }
-    // else if (card.substr(0,1) == "h") {
-    //     val += 39;
-    // }
+    else if (card.substr(0,1) == "s") {
+        val += 26;
+    }
+    else if (card.substr(0,1) == "h") {
+        val += 39;
+    }
     return val;
 }
 
@@ -104,9 +104,10 @@ string IntToCard(int val){
         else if (val == 13) {
             value = "k";
         }
-        else{ value=to_string(val); }
-
-      card=card+"c "+value;
+        else {
+            value = to_string(val);
+        }
+        card = card + "c " + value;
     }
     else if(val<27){
       if(val-13==1) value="a";
