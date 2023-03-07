@@ -35,23 +35,6 @@ int CardToInt(string card){
             break;
     }
 
-    // if (type == "a") {
-    //     val = 1;
-    // }
-    // else if (type == "j") {
-    //     val = 11;
-    // }
-    // else if (type == "q") {
-    //     val = 12;
-    // }
-    // else if (type == "k") {
-    //     val = 13;
-    // }
-    // else {
-    //     val = stoi(type);
-    // }
-
-
     // edge cases for diamonds, spades, and hearts
     switch (suite) {
         case 'd':
@@ -67,17 +50,6 @@ int CardToInt(string card){
             val += 0;
             break;
     }
-
-
-    // if (card.substr(0,1) == "d") {
-    //     val += 13;
-    // }
-    // else if (card.substr(0,1) == "s") {
-    //     val += 26;
-    // }
-    // else if (card.substr(0,1) == "h") {
-    //     val += 39;
-    // }
     return val;
 }
 
@@ -162,100 +134,97 @@ string IntToCard(int val){
 
 
 int main(int argv, char** argc){
-  
-  //prompt lines
-  if(argv < 3){
-    cout << "Please provide 2 file names" << endl;
-    return 1;
-  }
-  
-  ifstream cardFile1 (argc[1]);
-  ifstream cardFile2 (argc[2]);
-  string line;
-
-  //check to make sure file can be read
-  if (cardFile1.fail() || cardFile2.fail() ){
-    cout << "Could not open file " << argc[2];
-    return 1;
-  }
-
-  //Read each file
-  Cards aHand;
-  while (getline (cardFile1, line) && (line.length() > 0)){
-    aHand.insert(CardToInt(line));
-  }
-  cardFile1.close();
-
-  Cards bHand;
-  while (getline (cardFile2, line) && (line.length() > 0)){  
-    bHand.insert(CardToInt(line));
-  }
-  cardFile2.close();
-  
-  //game
-  int count=0;
-  int val1min=aHand.minValue();
-  int val2max=bHand.maxValue();
-  int valDel;
-  while(val1min!=aHand.maxValue() && val2max!=bHand.minValue()){  
-    //Alice
-    if(count==0){
-      if(bHand.contains(val1min)){
-        cout << "Alice picked matching card " << IntToCard(val1min) << endl;
-        valDel=val1min;
-        val1min=aHand.getSuccessor(val1min);
-        aHand.remove(valDel);
-        /*if(val2max==val1min){
-          val2max=bHand.getPredecessor(val2max);
-        }*/
-        bHand.remove(valDel);
-        count++;
-      }
-      else{
-        if(!aHand.contains(val1min)){ break;}
-        val1min=aHand.getSuccessor(val1min);
-
-      }
-      
+    // prompt lines
+    if(argv < 3){
+      cout << "Please provide 2 file names" << endl;
+      return 1;
     }
-    //Bob
-    else{
-      if(aHand.contains(val2max)){
-        cout << "Bob picked matching card " << IntToCard(val2max) << endl;
-        valDel=val2max;
-        val2max=bHand.getPredecessor(val2max);
-        bHand.remove(valDel);
-        /*if(val1min==val2max){
-          val1min=aHand.getSuccessor(val1min);
-        }*/
-        
-        aHand.remove(valDel);
-        count--;
-      }
-      else{
-        if(!bHand.contains(val2max)){ break;}
-        val2max=bHand.getPredecessor(val2max);
-      }
-      
+    
+    ifstream cardFile1 (argc[1]);
+    ifstream cardFile2 (argc[2]);
+    string line;
+
+    //check to make sure file can be read
+    if (cardFile1.fail() || cardFile2.fail() ){
+      cout << "Could not open file " << argc[2];
+      return 1;
     }
-  }
 
-  cout << endl;
-  int printVal=aHand.minValue();
-  cout << "Alice's cards:" << endl;
-  for(int i=0;i<aHand.count();i++){
-    cout << IntToCard(printVal) << endl;
-    printVal=aHand.getSuccessor(printVal);
-  }
+    //Read hand A
+    Cards a;
+    while (getline (cardFile1, line) && (line.length() > 0)) {
+      a.insert(CardToInt(line));
+    }
+    cardFile1.close();
 
-  cout << endl;
-  printVal=bHand.minValue();
-  cout << "Bob's cards:" << endl;
-  for(int i=0;i<bHand.count();i++){
-    cout << IntToCard(printVal) << endl;
-    printVal=bHand.getSuccessor(printVal);
-  }
-  
+    // Read hand B
+    Cards b;
+    while (getline (cardFile2, line) && (line.length() > 0)){  
+      b.insert(CardToInt(line));
+    }
+    cardFile2.close();
+    
+    // working game code
+    int total = 0;
+    int minA = a.minValue();
+    int maxB = b.maxValue();
+    int temp;
+    while (minA != a.maxValue() && maxB != b.minValue()) {  
+      
+      //A check
+      if (total == 0) {
+        if (b.contains(minA)) {
+            cout << "Alice picked matching card " << IntToCard(minA) << endl;
+            temp = minA;
+            minA = a.getSuccessor(minA);
+            a.remove(temp);
+            b.remove(temp);
+            total += 1;
+        }
+        else {
+          if(!a.contains(minA)) {
+              break;
+          }
+          minA = a.getSuccessor(minA);
+        }
+      }
 
-  return 0;
+      //B check
+      else{
+        if (a.contains(maxB)) {
+            cout << "Bob picked matching card " << IntToCard(maxB) << endl;
+            temp = maxB;
+            maxB = b.getPredecessor(maxB);
+            b.remove(temp);
+            a.remove(temp);
+            total -= 1;
+        }
+        else {
+          if(!b.contains(maxB)) {
+              break;
+          }
+          maxB = b.getPredecessor(maxB);
+        } 
+      }
+    }
+
+    cout << endl;
+    cout << "Alice's cards:" << endl;
+    
+    
+    int val = a.minValue();
+    for (int i = 0; i < a.count(); i++) {
+        cout << IntToCard(val) << endl;
+        val = a.getSuccessor(val);
+    }
+
+    cout << endl;
+    cout << "Bob's cards:" << endl;
+    
+    val = b.minValue();
+    for (int j = 0; j < b.count(); j++) {
+        cout << IntToCard(val) << endl;
+        val = b.getSuccessor(val);
+    }
+    return 0;
 }
