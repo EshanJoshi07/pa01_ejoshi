@@ -125,12 +125,12 @@ int Cards::sum() const {
 }
 
 // //sum helper --> recursive
-// int Cards::sum(Node *n) const {
-//     if (n == NULL){
-//         return 0;
-//     }
-//     return (n->info + sum(n->left) + sum(n->right));
-// }
+int Cards::sum(Node *n) const {
+    if (n == NULL){
+        return 0;
+    }
+    return (n->info + sum(n->left) + sum(n->right));
+}
 
 // //counter
 // int Cards::count() const {
@@ -356,22 +356,16 @@ int Cards::sum() const {
 
 
 
-
-// return sum of values in tree
-// int Cards::sum() const {
-//     return sum(root);
-// }
-
 // recursive helper for sum
-int Cards::sum(Node *n) const {
-    if(n==NULL){
-        return 0;
-    }
-    else{
-        return n->info+sum(n->left)+sum(n->right);
-    }
-    // REPLACE THIS NON-SOLUTION
-}
+// int Cards::sum(Node *n) const {
+//     if(n==NULL){
+//         return 0;
+//     }
+//     else{
+//         return n->info+sum(n->left)+sum(n->right);
+//     }
+//     // REPLACE THIS NON-SOLUTION
+// }
 
 // return count of values
 int Cards::count() const {
