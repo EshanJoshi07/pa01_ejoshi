@@ -211,14 +211,14 @@ Cards::Node* Cards::getPredecessorNode(int value) const{
 }
 
 // // returns the predecessor value of the given value or 0 if there is none
-// int Cards::getPredecessor(int value) const{
-//     if(getPredecessorNode(value)==NULL){
-//         return 0;
-//     }
-//     else{
-//         return getPredecessorNode(value)->info; //IS THIS ALLOWED?
-//     }
-// }
+int Cards::getPredecessor(int value) const{
+    if (getPredecessorNode(value) == NULL) {
+        return 0;
+    }
+    else {
+        return getPredecessorNode(value)->info;
+    }
+}
 
 // // returns the Node containing the successor of the given value
 // Cards::Node* Cards::getSuccessorNode(int value) const{
@@ -391,14 +391,14 @@ Cards::Node* Cards::getPredecessorNode(int value) const{
 // }
 
 // returns the predecessor value of the given value or 0 if there is none
-int Cards::getPredecessor(int value) const{
-    if(getPredecessorNode(value)==NULL){
-        return 0;
-    }
-    else{
-        return getPredecessorNode(value)->info; //IS THIS ALLOWED?
-    }
-}
+// int Cards::getPredecessor(int value) const{
+//     if(getPredecessorNode(value)==NULL){
+//         return 0;
+//     }
+//     else{
+//         return getPredecessorNode(value)->info; //IS THIS ALLOWED?
+//     }
+// }
 
 // returns the Node containing the successor of the given value
 Cards::Node* Cards::getSuccessorNode(int value) const{
