@@ -72,34 +72,11 @@ bool Cards::insert(int value, Node *n) {
     }
 }
 
-// bool Cards::insert(int value, Node *n) {
-//     if (value == n->info)
-// 	return false;
-//     if (value < n->info) {
-// 	if (n->left)
-// 	    return insert(value, n->left);
-// 	else {
-// 	    n->left = new Node(value);
-// 	    n->left->parent = n;
-// 	    return true;
-// 	}
-//     }
-//     else {
-// 	if (n->right)
-// 	    return insert(value, n->right);
-// 	else {
-// 	    n->right = new Node(value);
-// 	    n->right->parent = n;
-// 	    return true;
-// 	}
-//     }
-// }
-
-// //printPreOrder
-// void Cards::printPreOrder() const {
-//     Node *n = root;
-//     printPreOrder(n);
-// }
+//printPreOrder
+void Cards::printPreOrder() const {
+    Node *n = root;
+    printPreOrder(n);
+}
 
 // //printPreOrder helper --> recursive 
 // void Cards::printPreOrder(Node *n) const {
@@ -430,10 +407,10 @@ bool Cards::insert(int value, Node *n) {
 //     }
 // }
 
-// print tree data pre-order
-void Cards::printPreOrder() const {
-    printPreOrder(root);
-}
+// // print tree data pre-order
+// void Cards::printPreOrder() const {
+//     printPreOrder(root);
+// }
 
 // recursive helper for printPreOrder()
 void Cards::printPreOrder(Node *n) const {
