@@ -12,72 +12,72 @@ using namespace std;
 int CardToInt(string card){
     int val;
     string type = card.substr(2,2);
-    // char num = card[2];
-    // char suite = card[0];
-    // card.substr(2,2);
+    char num = card[2];
+    char suite = card[0];
+    card.substr(2,2);
 
-    // edge cases for ace, jackm, queenm, king
-    // switch (num) {
-    //     case 'a':
-    //         val = 1;
-    //         break;
-    //     case 'j':
-    //         val = 11;
-    //         break;
-    //     case 'q':
-    //         val = 12;
-    //         break;
-    //     case 'k':
-    //         val = 13;
-    //         break;
-    //     default:
-    //         val = stoi(card.substr(2,2));
-    //         break;
+    //edge cases for ace, jackm, queenm, king
+    switch (num) {
+        case 'a':
+            val = 1;
+            break;
+        case 'j':
+            val = 11;
+            break;
+        case 'q':
+            val = 12;
+            break;
+        case 'k':
+            val = 13;
+            break;
+        default:
+            val = stoi(card.substr(2,2));
+            break;
+    }
+
+    // if (type == "a") {
+    //     val = 1;
     // }
-
-    if (type == "a") {
-        val = 1;
-    }
-    else if (type == "j") {
-        val = 11;
-    }
-    else if (type == "q") {
-        val = 12;
-    }
-    else if (type == "k") {
-        val = 13;
-    }
-    else {
-        val = stoi(type);
-    }
+    // else if (type == "j") {
+    //     val = 11;
+    // }
+    // else if (type == "q") {
+    //     val = 12;
+    // }
+    // else if (type == "k") {
+    //     val = 13;
+    // }
+    // else {
+    //     val = stoi(type);
+    // }
 
 
     // edge cases for diamonds, spades, and hearts
-    // switch (suite) {
-    //     case 'd':
-    //         val += 13;
-    //         break;
-    //     case 's':
-    //         val += 26;
-    //         break;
-    //     case 'h':
-    //         val += 39;
-    //         break;
-    //     default:
-    //         val += 0;
-    //         break;
+    switch (suite) {
+        case 'd':
+            val += 13;
+            break;
+        case 's':
+            val += 26;
+            break;
+        case 'h':
+            val += 39;
+            break;
+        default:
+            val += 0;
+            break;
+    }
+
+
+    // if (card.substr(0,1) == "d") {
+    //     val += 13;
     // }
-
-
-    if (card.substr(0,1) == "d") {
-        val += 13;
-    }
-    else if (card.substr(0,1) == "s") {
-        val += 26;
-    }
-    else if (card.substr(0,1) == "h") {
-        val += 39;
-    }
+    // else if (card.substr(0,1) == "s") {
+    //     val += 26;
+    // }
+    // else if (card.substr(0,1) == "h") {
+    //     val += 39;
+    // }
     return val;
 }
 
