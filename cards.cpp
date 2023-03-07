@@ -11,9 +11,9 @@
 using namespace std;
 
 //constructor --> set the root as null
-// Cards::Cards() {
-//     root = nullptr;
-// }
+Cards::Cards() {
+    root = nullptr;
+}
 
 // // // destructor deletes all nodes
 // Cards::~Cards() {
@@ -349,7 +349,7 @@ void Cards::clear(Node *n) {
 //     return max->info;
 // }
 
-Cards::Cards() : root(nullptr) { }
+// Cards::Cards() : root(nullptr) { }
 
 // destructor deletes all nodes
 Cards::~Cards() {
