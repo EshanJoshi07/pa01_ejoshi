@@ -324,13 +324,13 @@ int Cards::minVal() const{
 }
 
 // //right side has larger values
-// int Cards::maxValue() const {
-//     Node *max = root;
-//     while(max->right){
-//         max = max->right;
-//     }
-//     return max->info;
-// }
+int Cards::maxVal() const {
+    Node *max = root;
+    while (max->right) {
+        max = max->right;
+    }
+    return (max->info);
+}
 
 
 
@@ -349,17 +349,11 @@ int Cards::minVal() const{
 
 
 
-// int Cards::minVal() const{
+
+// int Cards::maxVal() const {
 //     Node* val=root;
-//     while(val->left){
-//         val=val->left;
+//     while(val->right){
+//         val=val->right;
 //     }
 //     return val->info;
 // }
-int Cards::maxVal() const {
-    Node* val=root;
-    while(val->right){
-        val=val->right;
-    }
-    return val->info;
-}
