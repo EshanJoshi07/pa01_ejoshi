@@ -146,11 +146,6 @@ int Cards::count(Node *n) const {
     return (1 + count(n->left) + count(n->right));
 }
 
-// // Parameters:
-// // int value: the value to be found
-// // Node* n: the node to start with (for a recursive call)
-// // Whenever you call this method from somewhere else, pass it
-// // the root node as "n"
 Cards::Node* Cards::getNodeFor(int value, Node* n) const{
     if(n==NULL){
         return NULL;
@@ -331,29 +326,3 @@ int Cards::maxVal() const {
     }
     return (max->info);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// int Cards::maxVal() const {
-//     Node* val=root;
-//     while(val->right){
-//         val=val->right;
-//     }
-//     return val->info;
-// }

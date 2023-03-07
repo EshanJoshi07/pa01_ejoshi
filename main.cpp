@@ -132,7 +132,6 @@ string IntToCard(int val){
     return card;
 }
 
-
 int main(int argv, char** argc){
     // prompt lines
     if(argv < 3){
