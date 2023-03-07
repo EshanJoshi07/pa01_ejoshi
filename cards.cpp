@@ -42,58 +42,58 @@ bool Cards::insert(int value) {
 }
 
 // //insert helper (assumes n is never 0) --> recrusive 
-// bool Cards::insert(int value, Node *n) {
-//     //check if value = n->info
-//     if (value == n->info)
-// 	    return false;
-
-//     //check if value <n->info --> if value is less also check the left node
-//     if (value < n->info) {
-// 	    if (n->left) {
-// 	        return insert(value, n->left);
-//         }
-// 	    else {
-// 	        n->left = new Node(value);
-// 	        n->left->parent = n;
-// 	        return true;
-// 	    }
-//     }
-
-//     //check if value>n->info --> if value is greater also check the left node
-//     else {
-// 	    if (n->right) {
-// 	        return insert(value, n->right);
-//         }
-// 	    else {
-// 	        n->right = new Node(value);
-// 	        n->right->parent = n;
-// 	        return true;
-// 	    }
-//     }
-// }
-
 bool Cards::insert(int value, Node *n) {
+    //check if value = n->info
     if (value == n->info)
-	return false;
+	    return false;
+
+    //check if value <n->info --> if value is less also check the left node
     if (value < n->info) {
-	if (n->left)
-	    return insert(value, n->left);
-	else {
-	    n->left = new Node(value);
-	    n->left->parent = n;
-	    return true;
-	}
+	    if (n->left) {
+	        return insert(value, n->left);
+        }
+	    else {
+	        n->left = new Node(value);
+	        n->left->parent = n;
+	        return true;
+	    }
     }
+
+    //check if value>n->info --> if value is greater also check the left node
     else {
-	if (n->right)
-	    return insert(value, n->right);
-	else {
-	    n->right = new Node(value);
-	    n->right->parent = n;
-	    return true;
-	}
+	    if (n->right) {
+	        return insert(value, n->right);
+        }
+	    else {
+	        n->right = new Node(value);
+	        n->right->parent = n;
+	        return true;
+	    }
     }
 }
+
+// bool Cards::insert(int value, Node *n) {
+//     if (value == n->info)
+// 	return false;
+//     if (value < n->info) {
+// 	if (n->left)
+// 	    return insert(value, n->left);
+// 	else {
+// 	    n->left = new Node(value);
+// 	    n->left->parent = n;
+// 	    return true;
+// 	}
+//     }
+//     else {
+// 	if (n->right)
+// 	    return insert(value, n->right);
+// 	else {
+// 	    n->right = new Node(value);
+// 	    n->right->parent = n;
+// 	    return true;
+// 	}
+//     }
+// }
 
 // //printPreOrder
 // void Cards::printPreOrder() const {
