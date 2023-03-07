@@ -119,10 +119,10 @@ void Cards::printPostOrder(Node *n) const {
     cout << n->info << " ";
 }
 
-// int Cards::sum() const {
-//     Node *n = root;
-//     return sum(n);
-// }
+int Cards::sum() const {
+    Node *n = root;
+    return sum(n);
+}
 
 // //sum helper --> recursive
 // int Cards::sum(Node *n) const {
@@ -357,20 +357,10 @@ void Cards::printPostOrder(Node *n) const {
 
 
 
-// void Cards::printPostOrder(Node *n) const {
-//     if(n==NULL){
-//         return;
-//     }
-//     printPostOrder(n->left);
-//     printPostOrder(n->right);
-//     cout << n->info << " ";
-//     // IMPLEMENT HERE
-// }
-
 // return sum of values in tree
-int Cards::sum() const {
-    return sum(root);
-}
+// int Cards::sum() const {
+//     return sum(root);
+// }
 
 // recursive helper for sum
 int Cards::sum(Node *n) const {
