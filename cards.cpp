@@ -103,11 +103,11 @@ void Cards::printInOrder(Node *n) const {
     printInOrder(n->right);
 }
 
-// //printPostOrder
-// void Cards::printPostOrder() const {
-//     Node *n = root;
-//     printPostOrder(n);
-// }
+//printPostOrder
+void Cards::printPostOrder() const {
+    Node *n = root;
+    printPostOrder(n);
+}
 
 // //printPostOrder helper --> recursive
 // void Cards::printPostOrder(Node *n) const {
@@ -357,21 +357,11 @@ void Cards::printInOrder(Node *n) const {
 
 
 
-// void Cards::printInOrder(Node *n) const {
-//     if(n==NULL){
-//         return;
-//     }
-//     printInOrder(n->left);
-//     cout << n->info << " ";
-//     printInOrder(n->right);
-
-//     // IMPLEMENT HERE
-// }
 
 // prints tree data post-order, with helper
-void Cards::printPostOrder() const {
-    printPostOrder(root);
-}
+// void Cards::printPostOrder() const {
+//     printPostOrder(root);
+// }
 
 void Cards::printPostOrder(Node *n) const {
     if(n==NULL){
