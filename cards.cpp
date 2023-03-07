@@ -21,13 +21,13 @@ using namespace std;
 // }
 
 // // //destructor helper --> recrusive 
-// void Cards::clear(Node *n) {
-//     if (n) {
-// 	    clear(n->left);
-// 	    clear(n->right);
-// 	    delete n;
-//     }
-// }
+void Cards::clear(Node *n) {
+    if (n) {
+	    clear(n->left);
+	    clear(n->right);
+	    delete n;
+    }
+}
 
 //insert value in tree; return false if duplicate
 // bool Cards::insert(int value) {
@@ -357,13 +357,13 @@ Cards::~Cards() {
 }
 
 // recursive helper for destructor
-void Cards::clear(Node *n) {
-    if (n) {
-	clear(n->left);
-	clear(n->right);
-	delete n;
-    }
-}
+// void Cards::clear(Node *n) {
+//     if (n) {
+// 	clear(n->left);
+// 	clear(n->right);
+// 	delete n;
+//     }
+// }
 
 
 // insert value in tree; return false if duplicate
