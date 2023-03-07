@@ -87,11 +87,11 @@ void Cards::printPreOrder(Node *n) const {
     }
 }
 
-// //printInOrder
-// void Cards::printInOrder() const {
-//     Node *n = root;
-//     printInOrder(n);
-// }
+//printInOrder
+void Cards::printInOrder() const {
+    Node *n = root;
+    printInOrder(n);
+}
 
 // //printInOrder helper --> recursive
 // void Cards::printInOrder(Node *n) const {
@@ -422,9 +422,9 @@ void Cards::printPreOrder(Node *n) const {
 // }
 
 // print tree data in-order, with helper
-void Cards::printInOrder() const {
-    printInOrder(root);
-}
+// void Cards::printInOrder() const {
+//     printInOrder(root);
+// }
 void Cards::printInOrder(Node *n) const {
     if(n==NULL){
         return;
