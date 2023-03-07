@@ -11,23 +11,23 @@
 using namespace std;
 
 //constructor --> set the root as null
-Cards::Cards() {
-    root = nullptr;
-}
+// Cards::Cards() {
+//     root = nullptr;
+// }
 
-// // destructor deletes all nodes
-Cards::~Cards() {
-    clear(root);
-}
+// // // destructor deletes all nodes
+// Cards::~Cards() {
+//     clear(root);
+// }
 
-// //destructor helper --> recrusive 
-void Cards::clear(Node *n) {
-    if (n) {
-	    clear(n->left);
-	    clear(n->right);
-	    delete n;
-    }
-}
+// // //destructor helper --> recrusive 
+// void Cards::clear(Node *n) {
+//     if (n) {
+// 	    clear(n->left);
+// 	    clear(n->right);
+// 	    delete n;
+//     }
+// }
 
 //insert value in tree; return false if duplicate
 // bool Cards::insert(int value) {
@@ -348,6 +348,22 @@ void Cards::clear(Node *n) {
 //     }
 //     return max->info;
 // }
+
+Cards::Cards() : root(nullptr) { }
+
+// destructor deletes all nodes
+Cards::~Cards() {
+    clear(root);
+}
+
+// recursive helper for destructor
+void Cards::clear(Node *n) {
+    if (n) {
+	clear(n->left);
+	clear(n->right);
+	delete n;
+    }
+}
 
 
 // insert value in tree; return false if duplicate
