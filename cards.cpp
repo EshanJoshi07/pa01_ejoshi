@@ -94,14 +94,14 @@ void Cards::printInOrder() const {
 }
 
 // //printInOrder helper --> recursive
-// void Cards::printInOrder(Node *n) const {
-//     if (n == NULL){
-//         return;
-//     }
-//     printInOrder(n->left);
-//     cout << n->info << " ";
-//     printInOrder(n->right);
-// }
+void Cards::printInOrder(Node *n) const {
+    if (n == NULL){
+        return;
+    }
+    printInOrder(n->left);
+    cout << n->info << " ";
+    printInOrder(n->right);
+}
 
 // //printPostOrder
 // void Cards::printPostOrder() const {
@@ -355,86 +355,18 @@ void Cards::printInOrder() const {
 
 
 
-// Cards::Cards() : root(nullptr) { }
 
-// destructor deletes all nodes
-// Cards::~Cards() {
-//     clear(root);
-// }
 
-// recursive helper for destructor
-// void Cards::clear(Node *n) {
-//     if (n) {
-// 	clear(n->left);
-// 	clear(n->right);
-// 	delete n;
+// void Cards::printInOrder(Node *n) const {
+//     if(n==NULL){
+//         return;
 //     }
+//     printInOrder(n->left);
+//     cout << n->info << " ";
+//     printInOrder(n->right);
+
+//     // IMPLEMENT HERE
 // }
-
-
-// insert value in tree; return false if duplicate
-// bool Cards::insert(int value) {
-//     // handle special case of empty tree first
-//     if (!root) {
-// 	root = new Node(value);
-// 	return true;
-//     }
-//     // otherwise use recursive helper
-//     return insert(value, root);
-// }
-
-// recursive helper for insert (assumes n is never 0)
-// bool Cards::insert(int value, Node *n) {
-//     if (value == n->info)
-// 	return false;
-//     if (value < n->info) {
-// 	if (n->left)
-// 	    return insert(value, n->left);
-// 	else {
-// 	    n->left = new Node(value);
-// 	    n->left->parent = n;
-// 	    return true;
-// 	}
-//     }
-//     else {
-// 	if (n->right)
-// 	    return insert(value, n->right);
-// 	else {
-// 	    n->right = new Node(value);
-// 	    n->right->parent = n;
-// 	    return true;
-// 	}
-//     }
-// }
-
-// // print tree data pre-order
-// void Cards::printPreOrder() const {
-//     printPreOrder(root);
-// }
-
-// recursive helper for printPreOrder()
-// void Cards::printPreOrder(Node *n) const {
-//     if (n) {
-// 	cout << n->info << " ";
-// 	printPreOrder(n->left);
-// 	printPreOrder(n->right);
-//     }
-// }
-
-// print tree data in-order, with helper
-// void Cards::printInOrder() const {
-//     printInOrder(root);
-// }
-void Cards::printInOrder(Node *n) const {
-    if(n==NULL){
-        return;
-    }
-    printInOrder(n->left);
-    cout << n->info << " ";
-    printInOrder(n->right);
-
-    // IMPLEMENT HERE
-}
 
 // prints tree data post-order, with helper
 void Cards::printPostOrder() const {
