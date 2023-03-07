@@ -11,36 +11,36 @@
 using namespace std;
 
 //constructor --> set the root as null
-// Cards::Cards() {
-//     root = nullptr;
-// }
+Cards::Cards() {
+    root = nullptr;
+}
 
 // // destructor deletes all nodes
-// Cards::~Cards() {
-//     clear(root);
-// }
+Cards::~Cards() {
+    clear(root);
+}
 
 // //destructor helper --> recrusive 
-// void Cards::clear(Node *n) {
-//     if (n) {
-// 	    clear(n->left);
-// 	    clear(n->right);
-// 	    delete n;
-//     }
-// }
+void Cards::clear(Node *n) {
+    if (n) {
+	    clear(n->left);
+	    clear(n->right);
+	    delete n;
+    }
+}
 
-// //insert value in tree; return false if duplicate
-// bool Cards::insert(int value) {
-//     Node *temp = root;
+//insert value in tree; return false if duplicate
+bool Cards::insert(int value) {
+    Node *n = root;
 
-//     //check if tree is empty
-//     if (!temp) {
-// 	    temp = new Node(value);
-// 	    return true;
-//     }
+    //check if tree is empty
+    if (!n) {
+	    n = new Node(value);
+	    return true;
+    }
 
-//     return insert(value, temp);
-// }
+    return insert(value, n);
+}
 
 // //insert helper (assumes n is never 0) --> recrusive 
 // bool Cards::insert(int value, Node *n) {
@@ -349,32 +349,17 @@ using namespace std;
 //     return max->info;
 // }
 
-Cards::Cards() : root(nullptr) { }
-
-// destructor deletes all nodes
-Cards::~Cards() {
-    clear(root);
-}
-
-// recursive helper for destructor
-void Cards::clear(Node *n) {
-    if (n) {
-	clear(n->left);
-	clear(n->right);
-	delete n;
-    }
-}
 
 // insert value in tree; return false if duplicate
-bool Cards::insert(int value) {
-    // handle special case of empty tree first
-    if (!root) {
-	root = new Node(value);
-	return true;
-    }
-    // otherwise use recursive helper
-    return insert(value, root);
-}
+// bool Cards::insert(int value) {
+//     // handle special case of empty tree first
+//     if (!root) {
+// 	root = new Node(value);
+// 	return true;
+//     }
+//     // otherwise use recursive helper
+//     return insert(value, root);
+// }
 
 // recursive helper for insert (assumes n is never 0)
 bool Cards::insert(int value, Node *n) {
