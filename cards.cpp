@@ -181,42 +181,34 @@ bool Cards::contains(int value) const {
 }
 
 // // returns the Node containing the predecessor of the given value
-// Cards::Node* Cards::getPredecessorNode(int value) const{
-//     Node* loc = getNodeFor(value,root);
-//     Node* smallest = root;
-//     while(smallest->left){
-//         smallest = smallest->left;
-//     }
-//     if(loc==smallest){
-//         return 0;
-//     }
-//     else{
-//         if(loc->left){
-//             loc=loc->left;
-//             while(loc->right){
-//                 loc=loc->right;
-//             }
-//         }
-//         /*else if(loc->right){
-//             loc=loc->right;
-//             while(loc->left){
-//                 loc=loc->left;
-//             }
-//         }*/
-//         else{
-//             while(loc->parent){
-//                 if(loc->parent->right==loc){
-//                     return loc->parent;
-//                 }
-//                 loc=loc->parent;
-//             }
-//         }
-//         return loc;
-//         //return loc;
-        
-//     }
+Cards::Node* Cards::getPredecessorNode(int value) const{
+    Node* temp = getNodeFor(value,root);
+    Node* min = root;
+    while (min->left){
+        min = min->left;
+    }
+    if (temp == min){
+        return 0;
+    }
+    else {
+        if (temp->left){
+            temp = temp->left;
+            while (temp->right) {
+                temp = temp->right;
+            }
+        }
+        else {
+            while (temp->parent) {
+                if (temp->parent->right == temp){
+                    return temp->parent;
+                }
+                temp = temp->parent;
+            }
+        }
+        return temp;
+    }
     
-// }
+}
 
 // // returns the predecessor value of the given value or 0 if there is none
 // int Cards::getPredecessor(int value) const{
@@ -360,51 +352,43 @@ bool Cards::contains(int value) const {
 
 
 
-// returns true if value is in the tree; false if not
-// bool Cards::contains(int value) const {
-    
-//     return getNodeFor(value,root)!=NULL;//IS THIS ALLOWED?
-
-//      // REPLACE THIS NON-SOLUTION
-// }
-
-// returns the Node containing the predecessor of the given value
-Cards::Node* Cards::getPredecessorNode(int value) const{
-    Node* loc = getNodeFor(value,root);
-    Node* smallest = root;
-    while(smallest->left){
-        smallest = smallest->left;
-    }
-    if(loc==smallest){
-        return 0;
-    }
-    else{
-        if(loc->left){
-            loc=loc->left;
-            while(loc->right){
-                loc=loc->right;
-            }
-        }
-        /*else if(loc->right){
-            loc=loc->right;
-            while(loc->left){
-                loc=loc->left;
-            }
-        }*/
-        else{
-            while(loc->parent){
-                if(loc->parent->right==loc){
-                    return loc->parent;
-                }
-                loc=loc->parent;
-            }
-        }
-        return loc;
-        //return loc;
+// // returns the Node containing the predecessor of the given value
+// Cards::Node* Cards::getPredecessorNode(int value) const{
+//     Node* loc = getNodeFor(value,root);
+//     Node* smallest = root;
+//     while(smallest->left){
+//         smallest = smallest->left;
+//     }
+//     if(loc==smallest){
+//         return 0;
+//     }
+//     else{
+//         if(loc->left){
+//             loc=loc->left;
+//             while(loc->right){
+//                 loc=loc->right;
+//             }
+//         }
+//         /*else if(loc->right){
+//             loc=loc->right;
+//             while(loc->left){
+//                 loc=loc->left;
+//             }
+//         }*/
+//         else{
+//             while(loc->parent){
+//                 if(loc->parent->right==loc){
+//                     return loc->parent;
+//                 }
+//                 loc=loc->parent;
+//             }
+//         }
+//         return loc;
+//         //return loc;
         
-    }
+//     }
     
-}
+// }
 
 // returns the predecessor value of the given value or 0 if there is none
 int Cards::getPredecessor(int value) const{
