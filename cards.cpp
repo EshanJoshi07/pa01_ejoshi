@@ -314,14 +314,14 @@ bool Cards::remove(int value){
     }
 }
 
-// //left side has larger values
-// int Cards::minValue() const{
-//     Node *min = root;
-//     while(min->left){
-//         min = min->left;
-//     }
-//     return min->info;
-// }
+//left side has larger values
+int Cards::minVal() const{
+    Node *min = root;
+    while (min->left) {
+        min = min->left;
+    }
+    return (min->info);
+}
 
 // //right side has larger values
 // int Cards::maxValue() const {
@@ -348,78 +348,15 @@ bool Cards::remove(int value){
 
 
 
-// // returns the successor value of the given value or 0 if there is none
-// int Cards::getSuccessor(int value) const{
-//     if(getSuccessorNode(value)==NULL){
-//         return 0;
+
+// int Cards::minVal() const{
+//     Node* val=root;
+//     while(val->left){
+//         val=val->left;
 //     }
-//     else{
-//         return getSuccessorNode(value)->info;
-//     }
-//     //IS THIS ALLOWED?
+//     return val->info;
 // }
-
-// deletes the Node containing the given value from the tree
-// returns true if the node exist and was deleted or false if the node does not exist
-// bool Cards::remove(int value){
-//     Node* loc = getNodeFor(value,root);
-//     if(loc==NULL){
-//         return false;
-//     }
-//     if(loc->left==NULL && loc->right==NULL){
-//         if(loc==root){
-//             root = NULL;
-//         }
-//         else if(loc->parent->left==loc){
-//             loc->parent->left=NULL;
-//         }
-//         else{
-//             loc->parent->right=NULL;
-//         }
-//         delete loc;
-//         return true;
-//     }
-//     else if(loc->left && loc->right){
-//         int val = getPredecessor(loc->info);//getSuccessor
-//         remove(getPredecessor(loc->info));
-//         loc->info=val;
-
-//         return true; // REPLACE THIS NON-SOLUTION
-//     }
-//     else{
-//         Node* child;
-//         if(loc->left){
-//             child = loc->left;
-//         }
-//         else{
-//             child = loc->right;
-//         }
-//         if(loc!=root){
-//             if(loc->parent->left==loc){
-//                 loc->parent->left=child;
-//             }
-//             else{
-//                 loc->parent->right=child;
-//             }
-//             child->parent=loc->parent;
-//         }
-//         else{
-//             root=child;
-//         }
-//         delete loc;
-//         return true;
-//     }
-
-// }
-
-int Cards::minValue() const{
-    Node* val=root;
-    while(val->left){
-        val=val->left;
-    }
-    return val->info;
-}
-int Cards::maxValue() const {
+int Cards::maxVal() const {
     Node* val=root;
     while(val->right){
         val=val->right;
