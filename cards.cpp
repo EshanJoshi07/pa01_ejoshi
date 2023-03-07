@@ -221,41 +221,36 @@ int Cards::getPredecessor(int value) const{
 }
 
 // // returns the Node containing the successor of the given value
-// Cards::Node* Cards::getSuccessorNode(int value) const{
+Cards::Node* Cards::getSuccessorNode(int value) const{
     
-//     Node* loc = getNodeFor(value,root);
-//     Node* largest = root;
-//     while(largest->right){
-//         largest = largest->right;
-//     }
-//     if(loc==largest){
-//         return 0;
-//     }
-//     else{
-//         if(loc->right){
-//             loc=loc->right;
-//             while(loc->left){
-//                 loc=loc->left;
-//             }
-//         }
-//         else{
-//             while(loc->parent){
-//                 if(loc->parent->left==loc){
-//                     return loc->parent;
-//                 }
-//                 loc=loc->parent;
-//             }
-//             /*loc=loc->parent;
-//             while(loc->left==NULL){
-//                 loc=loc->parent;
-//             }*/
+    Node* temp = getNodeFor(value,root);
+    Node* max = root;
+    while (max->right) {
+        max = max->right;
+    }
+    if (temp == max) {
+        return 0;
+    }
+    else {
+        if (temp->right) {
+            temp = temp->right;
+            while (temp->left) {
+                temp = temp->left;
+            }
+        }
+        else {
+            while (temp->parent) {
+                if (temp->parent->left == temp) {
+                    return temp->parent;
+                }
+                temp = temp->parent;
+            }
             
-//         }
-//         return loc;
-        
-//     }
-//      // REPLACE THIS NON-SOLUTION
-// }
+        }
+        return temp;
+    }
+    // REPLACE THIS NON-SOLUTION
+}
 
 // // returns the successor value of the given value or 0 if there is none
 // int Cards::getSuccessor(int value) const{
@@ -352,90 +347,43 @@ int Cards::getPredecessor(int value) const{
 
 
 
-// // returns the Node containing the predecessor of the given value
-// Cards::Node* Cards::getPredecessorNode(int value) const{
+
+// returns the Node containing the successor of the given value
+// Cards::Node* Cards::getSuccessorNode(int value) const{
+    
 //     Node* loc = getNodeFor(value,root);
-//     Node* smallest = root;
-//     while(smallest->left){
-//         smallest = smallest->left;
+//     Node* largest = root;
+//     while(largest->right){
+//         largest = largest->right;
 //     }
-//     if(loc==smallest){
+//     if(loc==largest){
 //         return 0;
 //     }
 //     else{
-//         if(loc->left){
-//             loc=loc->left;
-//             while(loc->right){
-//                 loc=loc->right;
-//             }
-//         }
-//         /*else if(loc->right){
+//         if(loc->right){
 //             loc=loc->right;
 //             while(loc->left){
 //                 loc=loc->left;
 //             }
-//         }*/
+//         }
 //         else{
 //             while(loc->parent){
-//                 if(loc->parent->right==loc){
+//                 if(loc->parent->left==loc){
 //                     return loc->parent;
 //                 }
 //                 loc=loc->parent;
 //             }
+//             /*loc=loc->parent;
+//             while(loc->left==NULL){
+//                 loc=loc->parent;
+//             }*/
+            
 //         }
 //         return loc;
-//         //return loc;
         
 //     }
-    
+//      // REPLACE THIS NON-SOLUTION
 // }
-
-// returns the predecessor value of the given value or 0 if there is none
-// int Cards::getPredecessor(int value) const{
-//     if(getPredecessorNode(value)==NULL){
-//         return 0;
-//     }
-//     else{
-//         return getPredecessorNode(value)->info; //IS THIS ALLOWED?
-//     }
-// }
-
-// returns the Node containing the successor of the given value
-Cards::Node* Cards::getSuccessorNode(int value) const{
-    
-    Node* loc = getNodeFor(value,root);
-    Node* largest = root;
-    while(largest->right){
-        largest = largest->right;
-    }
-    if(loc==largest){
-        return 0;
-    }
-    else{
-        if(loc->right){
-            loc=loc->right;
-            while(loc->left){
-                loc=loc->left;
-            }
-        }
-        else{
-            while(loc->parent){
-                if(loc->parent->left==loc){
-                    return loc->parent;
-                }
-                loc=loc->parent;
-            }
-            /*loc=loc->parent;
-            while(loc->left==NULL){
-                loc=loc->parent;
-            }*/
-            
-        }
-        return loc;
-        
-    }
-     // REPLACE THIS NON-SOLUTION
-}
 
 // returns the successor value of the given value or 0 if there is none
 int Cards::getSuccessor(int value) const{
