@@ -78,14 +78,14 @@ void Cards::printPreOrder() const {
     printPreOrder(n);
 }
 
-// //printPreOrder helper --> recursive 
-// void Cards::printPreOrder(Node *n) const {
-//     if (n) {
-// 	    cout << n->info << " ";
-// 	    printPreOrder(n->left);
-// 	    printPreOrder(n->right);
-//     }
-// }
+//printPreOrder helper --> recursive 
+void Cards::printPreOrder(Node *n) const {
+    if (n) {
+	    cout << n->info << " ";
+	    printPreOrder(n->left);
+	    printPreOrder(n->right);
+    }
+}
 
 // //printInOrder
 // void Cards::printInOrder() const {
@@ -413,13 +413,13 @@ void Cards::printPreOrder() const {
 // }
 
 // recursive helper for printPreOrder()
-void Cards::printPreOrder(Node *n) const {
-    if (n) {
-	cout << n->info << " ";
-	printPreOrder(n->left);
-	printPreOrder(n->right);
-    }
-}
+// void Cards::printPreOrder(Node *n) const {
+//     if (n) {
+// 	cout << n->info << " ";
+// 	printPreOrder(n->left);
+// 	printPreOrder(n->right);
+//     }
+// }
 
 // print tree data in-order, with helper
 void Cards::printInOrder() const {
